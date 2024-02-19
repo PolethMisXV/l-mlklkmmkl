@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            background-color: transparent;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s ease; /* Agregué una transición para suavizar el cambio de color */
+        }
+
+        button:hover {
+            background-color: #E7F5E8; /* Cambia el color de fondo al pasar el mouse sobre el botón de reproducir */
+        }
+
+        button.ubicacion {
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 45px;
+            font-size: 14px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+    <title>Mis XV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <button id="playButton">&#9654; Reproducir</button>
+    <img src="../imagenes/invitacion.jpg" alt="invitacion.jpg">
+    <button class="ubicacion" onclick="openGoogleMaps()"></button>
+    <audio id="miAudio" controls>
+        <source src="../musica/corta.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.getElementById('playButton').addEventListener('click', function() {
+            var miAudio = document.getElementById('miAudio');
+            miAudio.play();
+        });
+
+        function openGoogleMaps() {
+            var latitud = '12.971598';
+            var longitud = '77.594562';
+            var url = 'https://www.google.com.mx/maps/place/Sal%C3%B3n+Beauty+Professional/@19.244925,-98.2337869,20z/data=!4m9!1m2!2m1!1s%2319+tepeyanco,+tlaxcala+Co,+Centro!3m5!1s0x85cfdb96a44223c7:0x270bbae9c33e6045!8m2!3d19.2448933!4d-98.2336146!16s%2Fg%2F11js_334tq?hl=es&entry=ttu' + latitud + ',' + longitud;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
